@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d0f0e">
+  <title>Current / Electric car log</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .language-picker{position:relative;margin-right:2px;color:#74776f}
+    .language-current,.language-option{display:flex;align-items:center;gap:6px}
+    .language-current{border:0;background:transparent;color:var(--ink);font:600 10px var(--sans);cursor:pointer;padding:3px 0}
+    .language-flag{font-family:"Segoe UI Emoji","Apple Color Emoji",sans-serif;font-size:14px;line-height:1}
+    .language-chevron{font-size:9px;color:#8b8d86;margin-left:1px}
+    .language-menu{position:absolute;right:0;top:25px;z-index:10;display:none;min-width:114px;padding:5px;background:var(--card);border:1px solid var(--line);box-shadow:0 8px 22px #0002}
+    .language-picker.open .language-menu{display:grid;gap:2px}
+    .language-option{width:100%;border:0;background:transparent;color:var(--ink);font:600 10px var(--sans);cursor:pointer;text-align:left;padding:7px 6px}
+    .language-option:hover,.language-option.selected{background:#e8eadf}
+    .totals-header{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding:18px 0 12px;margin-top:2px}
+    .period-filters{display:flex;gap:6px;align-items:center}.totals-header select{border:1px solid var(--line);background:transparent;color:var(--ink);font:600 10px var(--sans);padding:7px 20px 7px 8px;cursor:pointer;min-width:64px}.totals-header select:disabled{color:#aaa;cursor:not-allowed;background:#ecece6}
+    .totals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-bottom:21px}
+    .totals-grid>div{display:grid;gap:7px;color:#8a8e85;font-size:10px}
+    .totals-grid strong{color:var(--ink);font:500 14px var(--mono);white-space:nowrap}
+    .route-map{border-top:1px solid var(--line);margin-top:2px;padding-top:18px}.route-map-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.map-status{color:#999c93;font-size:10px}.map-canvas{height:225px;background:#dfe3d5;overflow:hidden}.leaflet-container{font-family:var(--sans)}
+    .summary-top-header{grid-column:1 / -1;display:flex;align-items:center;justify-content:center;gap:18px;border-top:1px solid var(--line);padding:18px 0 12px;margin-top:2px;position:relative}
+    .summary-top-header:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--line)}
+    .summary-top-header .section-kicker{margin-right:12px}
+    .summary-top-header .period-filters{display:flex;gap:6px;align-items:center;justify-content:center}.summary-top-header select{border:1px solid var(--line);background:transparent;color:var(--ink);font:600 10px var(--sans);padding:7px 20px 7px 8px;cursor:pointer;min-width:64px}.summary-top-header select:disabled{color:#aaa;cursor:not-allowed;background:#ecece6}
+    .charging-card{margin:24px -23px 0;padding:24px 23px 0;border-top:1px solid var(--line)}.charging-card .table-wrap{max-height:221px;overflow:auto}.charging-card table{min-width:430px}.charging-card td.cost{white-space:nowrap}.empty-cell{text-align:center;color:#999c93}
+    .mini-bars,.avg-bars,.cost-bars{position:absolute;bottom:27px;left:50%;transform:translateX(-50%);height:54px;width:122px;display:flex;gap:4px;align-items:flex-end;padding:0 2px}.mini-bars i,.avg-bars i,.cost-bars i{display:block;width:7px;min-height:4px;border-radius:5px 5px 0 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}.mini-bars i{background:linear-gradient(180deg,#d3d7cf 0%,#b9c0b7 100%)}.mini-bars i.filled{background:linear-gradient(180deg,#dffb8d 0%,#c2ea44 100%);box-shadow:0 0 0 1px rgba(156,190,30,.18),0 6px 12px rgba(176,212,53,.15)}.avg-bars i{background:linear-gradient(180deg,#dfeaf8 0%,#c0d4ef 100%)}.avg-bars i.filled{background:linear-gradient(180deg,#8ed0ff 0%,#3c80f6 100%);box-shadow:0 0 0 1px rgba(42,109,231,.15),0 6px 12px rgba(60,128,246,.15)}.cost-bars i{background:linear-gradient(180deg,#f1d8ff 0%,#d7b4f5 100%)}.cost-bars i.filled{background:linear-gradient(180deg,#d9a2ff 0%,#8b49d9 100%);box-shadow:0 0 0 1px rgba(120,72,182,.14),0 6px 12px rgba(139,73,217,.18)}
+    .stage-caption{position:absolute;bottom:21px;left:25px;right:25px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:#747c68;font:10px var(--mono);z-index:2}
+    .stage-caption > .stage-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .stage-caption > .stage-odometer{flex:none;font:700 10px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#50554b;white-space:nowrap}
+    .stage-caption > .stage-meta{flex:none;white-space:nowrap}
+    .car-stage{background:linear-gradient(135deg,#dde1d7 0%,#cbd2c5 100%)}
+    .car-stage::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(17,18,17,.03),rgba(17,18,17,.03) 1px,transparent 1px,transparent 3px);mix-blend-mode:multiply;pointer-events:none}
+    .car-stage .car-illustration{width:390px;height:210px;bottom:62px;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.8) brightness(1.08) sepia(.15) saturate(.22);mix-blend-mode:multiply;opacity:.82}
+    .car-stage .car-illustration::-webkit-image-set{display:none}
+    @media(max-width:640px){.totals-grid{grid-template-columns:1fr;gap:14px}.totals-grid>div{display:flex;align-items:center;justify-content:space-between}}
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top" aria-label="Current home"><span class="brand-mark">↗</span><span>current<span class="brand-dot">.</span></span></a>
+      <div class="sidebar-label">My topics</div>
+      <nav class="topic-nav" aria-label="Topics">
+        <a class="topic-link active" href="#journal"><span class="topic-icon">⚡</span><span>Electric car</span><span class="topic-count">08</span></a>
+        <button class="topic-link muted" type="button" id="newTopicButton"><span class="topic-icon">＋</span><span>New topic</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="profile-chip"><span class="avatar">RD</span><span><strong>Robby D.</strong><small>Personal log</small></span><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main id="top" class="main-content">
+      <header class="topbar"><div class="breadcrumb"><span data-i18n="topics">Topics</span><b>/</b><strong data-i18n="electricCar">Electric car</strong></div><div class="topbar-actions"><div class="language-picker" id="languagePicker"><button class="language-current" id="languageCurrent" type="button" aria-label="Language" aria-expanded="false"><span class="language-flag">🇬🇧</span><span>English</span><span class="language-chevron">⌄</span></button><div class="language-menu" id="languageMenu"><button class="language-option" type="button" data-language="en"><span class="language-flag">🇬🇧</span><span>English</span></button><button class="language-option" type="button" data-language="ro"><span class="language-flag">🇷🇴</span><span>Română</span></button><button class="language-option" type="button" data-language="hu"><span class="language-flag">🇭🇺</span><span>Magyar</span></button></div></div><button class="icon-button" type="button" aria-label="Search">⌕</button><button class="icon-button" type="button" aria-label="Notifications">◌</button><span class="online-dot"></span></div></header>
+
+      <section class="hero" id="journal">
+        <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> <span data-i18n="livingLog">Living log · 2024 — present</span></div><h1 data-i18n-html="heroTitle">Electric<br><em>car</em> journal<span class="lime">.</span></h1><p data-i18n="heroDescription">A record of the quiet switch. Weekly notes, real-world range, and what ownership actually feels like.</p><div class="hero-actions"><button class="primary-button" type="button" id="openEntryButton"><span>＋</span> <span data-i18n="addUpdate">Add weekly update</span></button><a class="text-button" href="#history" data-i18n="viewEntries">View all entries <span>↘</span></a></div></div>
+        <div class="car-stage" aria-label="Gray pencil sketch of a Volkswagen ID.4"><div class="road-line"></div><img class="car-illustration" src="assets/my-vw-id4.jpg" alt="Gray Volkswagen ID.4" loading="eager"><div class="stage-caption"><span class="stage-name">VOLKSWAGEN ID.4 PRO PERFORMANCE</span><span class="stage-odometer" id="odometerTotal">167,780 km</span><span class="stage-meta">RWD · 77 kWh</span></div></div>
+      </section>
+
+      <section class="stats-grid" aria-label="Car statistics">
+        <div class="summary-top-header"><span class="section-kicker" data-i18n="periodTotals">PERIOD TOTALS</span><div class="period-filters"><select id="summaryYear" aria-label="Totals year"><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option></select><select id="summaryMonth" aria-label="Totals month"><option value="all" selected>-</option></select><select id="summaryWeek" aria-label="Totals week" disabled><option value="all" selected>-</option></select></div></div>
+        <article class="stat-card stat-featured"><div class="stat-label" data-i18n="totalDistance">Total distance</div><div class="stat-value" id="totalDistance">0 <span>km</span></div><div class="mini-bars" aria-hidden="true"></div></article>
+        <article class="stat-card"><div class="stat-label" data-i18n="avgConsumption">Avg. consumption</div><div class="stat-value" id="avgConsumptionValue">0.00 <span>kWh/100</span></div><div class="avg-bars" aria-hidden="true"></div></article>
+        <article class="stat-card"><div class="stat-label" data-i18n="totalChargingCost">Total charging cost</div><div class="stat-value" id="totalChargingCostValue">€0.00</div><div class="cost-bars" aria-hidden="true"></div></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="journal-column" id="history"><div class="section-heading"><div><span class="section-kicker" data-i18n="theLog">THE LOG</span><h2 data-i18n="weeklyUpdates">Weekly updates</h2></div><button class="filter-button" type="button" id="filterButton">All weeks <span>⌄</span></button></div><div class="entries" id="entries"></div></div>
+        <aside class="side-column"><section class="table-card"><div class="section-heading compact"><div><span class="section-kicker" data-i18n="numbers">NUMBERS</span><h2 data-i18n="consumption">Consumption</h2></div><button class="dots-button" type="button" aria-label="More options">•••</button></div><div class="table-wrap"><table><thead><tr><th data-i18n="week">Week</th><th data-i18n="distance">Distance</th><th>kWh/100</th><th data-i18n="cost">Cost</th></tr></thead><tbody id="consumptionTable"></tbody></table></div><section class="charging-card"><div class="section-heading compact"><div><span class="section-kicker" data-i18n="chargingHistory">CHARGING HISTORY</span><h2 data-i18n="chargingSessions">Charging sessions</h2></div></div><div class="table-wrap"><table><thead><tr><th data-i18n="week">Week</th><th data-i18n="provider">Provider</th><th data-i18n="energyAmount">Energy</th><th data-i18n="price">Price</th></tr></thead><tbody id="chargingTable"></tbody></table></div></section></section></aside>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="entryDialog"><form method="dialog" id="entryForm"><div class="dialog-header"><div><span class="section-kicker" data-i18n="newEntry">NEW ENTRY</span><h2 data-i18n="logThisWeek">Log this week</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></div><label><span class="field-label" data-i18n="week">Week</span><input name="week" placeholder="Week 09 · Mar 04 — 10" required></label><label><span class="field-label" data-i18n="title">Title</span><input name="title" placeholder="Give this week a headline" required></label><label><span class="field-label" data-i18n="whatHappened">What happened?</span><textarea name="body" rows="4" placeholder="A short note from the road..." required></textarea></label><div class="form-row"><label><span class="field-label" data-i18n="distanceKm">Distance (km)</span><input name="distance" type="number" min="0" placeholder="320" required></label><label><span class="field-label" data-i18n="consumption">Consumption</span><input name="consumption" type="number" min="0" step="0.1" placeholder="16.4" required></label></div><div class="form-row"><label><span class="field-label" data-i18n="chargingProvider">Charging provider</span><select name="charger"><option value="" data-i18n="selectProvider">Select provider</option><option value="E-Charge">E-Charge</option><option value="PPC Blue">PPC Blue</option><option value="Tesla Supercharger">Tesla Supercharger</option><option value="Other">Other</option></select></label><label><span class="field-label" data-i18n="energyKwh">Energy (kWh)</span><input name="energy" type="number" min="0" step="0.1" placeholder="52.6"></label></div><div class="form-row"><label><span class="field-label" data-i18n="priceRon">Price (RON)</span><input name="cost" type="number" min="0" step="0.01" placeholder="18.40" required></label><label><span class="field-label" data-i18n="mood">Mood</span><select name="mood"><option value="↗" data-i18n="greatWeek">↗ Great week</option><option value="→" data-i18n="steadyWeek">→ Steady week</option><option value="↓" data-i18n="learningWeek">↓ A learning week</option></select></label></div><button class="primary-button submit-button" type="submit"><span data-i18n="publishUpdate">Publish update</span> <span>↗</span></button></form></dialog>
+  <div class="toast" id="toast" role="status">Update added to your journal.</div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>
