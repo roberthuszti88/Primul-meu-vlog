@@ -12,6 +12,13 @@ const translations = {
   ro: { topics: 'Subiecte', electricCar: 'Masina electrica', livingLog: 'Jurnal · 2024 — prezent', heroTitle: 'Jurnalul meu<br><em>masinii</em> electrice<span class="lime">.</span>', heroDescription: 'O inregistrare a trecerii la electric. Note saptamanale, autonomie reala si experienta de proprietar.', addUpdate: 'Adauga actualizare', viewEntries: 'Vezi toate intrarile <span>↘</span>', totalDistance: 'Distanta totala', thisMonth: '↗ 1.240 km luna aceasta', avgConsumption: 'Consum mediu', lastEightWeeks: 'Ultimele 8 saptamani', totalChargingCost: 'Cost total incarcare', sinceWeekOne: 'Din saptamana 01', home: 'Acasa <b>72%</b>', public: 'Public <b>28%</b>', theLog: 'JURNALUL', weeklyUpdates: 'Actualizari saptamanale', numbers: 'CIFRE', consumption: 'Consum', week: 'Saptamana', distance: 'Distanta', cost: 'Cost', showingLastFive: 'Ultimele 5 saptamani', seeAll: 'Vezi toate <span>↗</span>', chargingHistory: 'ISTORIC INCARCARI', chargingSessions: 'Sesiuni de incarcare', provider: 'Furnizor', energyAmount: 'Energie', price: 'Pret', chargingProvider: 'Furnizor incarcare', selectProvider: 'Alege furnizorul', energyKwh: 'Energie (kWh)', priceRon: 'Pret (RON)', periodTotals: 'TOTAL PE PERIOADA', thisWeek: 'Saptamana aceasta', thisMonthLabel: 'Luna aceasta', thisYear: 'Anul acesta', kilometers: 'Kilometri', energy: 'Energie', totalCost: 'Cost total', fieldNote: 'NOTA DE TEREN', newEntry: 'INTRARE NOUA', logThisWeek: 'Noteaza saptamana', title: 'Titlu', whatHappened: 'Ce s-a intamplat?', distanceKm: 'Distanta (km)', costEuro: 'Cost (€)', mood: 'Stare', greatWeek: '↗ Saptamana buna', steadyWeek: '→ Saptamana constanta', learningWeek: '↓ O saptamana de invatare', publishUpdate: 'Publica actualizarea', allWeeks: 'Toate saptamanile', recentWeeks: 'Saptamani recente', updateAdded: 'Actualizarea a fost adaugata in jurnal.', topicComing: 'Spatiile pentru subiecte urmeaza.', goodEnergy: 'ENERGIE BUNA', keepingItReal: 'REALITATEA DE ZI CU ZI', coldTip: 'Frigul se vede in cifre. Preincalzirea inainte de plecare face cea mai mare diferenta.', rangeTip: 'Cel mai bun test de autonomie este un traseu familiar: aceeasi viteza, aceeasi incarcare, mai putine presupuneri.' },
   hu: { topics: 'Témák', electricCar: 'Elektromos autó', livingLog: 'Napló · 2024 — jelenleg', heroTitle: 'Saját elektromos<br><em>autó</em> naplóm<span class="lime">.</span>', heroDescription: 'A csendes átállás naplója. Heti jegyzetek, valós hatótáv és a tulajdonlás valódi élménye.', addUpdate: 'Heti frissítés hozzáadása', viewEntries: 'Összes bejegyzés <span>↘</span>', totalDistance: 'Teljes távolság', thisMonth: '↗ 1 240 km ebben a hónapban', avgConsumption: 'Átlagfogyasztás', lastEightWeeks: 'Az elmúlt 8 hét', totalChargingCost: 'Teljes töltési költség', sinceWeekOne: 'Az 1. héttől', home: 'Otthoni <b>72%</b>', public: 'Nyilvános <b>28%</b>', theLog: 'NAPLÓ', weeklyUpdates: 'Heti frissítések', numbers: 'SZÁMOK', consumption: 'Fogyasztás', week: 'Hét', distance: 'Távolság', cost: 'Költség', showingLastFive: 'Az utolsó 5 hét látható', seeAll: 'Összes megtekintése <span>↗</span>', chargingHistory: 'TÖLTÉSI ELŐZMÉNYEK', chargingSessions: 'Töltési munkamenetek', provider: 'Szolgáltató', energyAmount: 'Energia', price: 'Ár', chargingProvider: 'Töltési szolgáltató', selectProvider: 'Válassz szolgáltatót', energyKwh: 'Energia (kWh)', priceRon: 'Ár (RON)', periodTotals: 'IDŐSZAK ÖSSZESEN', thisWeek: 'Ezen a héten', thisMonthLabel: 'Ebben a hónapban', thisYear: 'Ebben az évben', kilometers: 'Kilométer', energy: 'Energia', totalCost: 'Teljes költség', fieldNote: 'ÚTI JEGYZET', newEntry: 'ÚJ BEJEGYZÉS', logThisWeek: 'E heti napló', title: 'Cím', whatHappened: 'Mi történt?', distanceKm: 'Távolság (km)', costEuro: 'Költség (€)', mood: 'Hangulat', greatWeek: '↗ Jó hét', steadyWeek: '→ Nyugodt hét', learningWeek: '↓ Tanulságos hét', publishUpdate: 'Frissítés közzététele', allWeeks: 'Minden hét', recentWeeks: 'Legutóbbi hetek', updateAdded: 'A frissítés bekerült a naplóba.', topicComing: 'A témák hamarosan elérhetők.', goodEnergy: 'JÓ ENERGIA', keepingItReal: 'A VALÓSÁG', coldTip: 'A hideg idő látszik a számokon. Az indulás előtti előfűtés segít a legtöbbet.', rangeTip: 'A legjobb hatótávteszt egy ismerős útvonal: azonos sebesség, azonos töltés, kevesebb feltételezés.' }
 };
+const chargingProviders = ['Ampevo', 'EV-GO', 'E-Charge', 'Plugpoint', 'Voltrelli', 'Tesla', 'PPC Blue', 'E-On Drive', 'OMV Emotion', 'iHunt'];
+translations.en.addChargingSession = '+ Add charging session';
+translations.en.weeklyChargingTotal = 'Weekly charging total';
+translations.ro.addChargingSession = '+ Adauga sesiune de incarcare';
+translations.ro.weeklyChargingTotal = 'Total incarcare saptamanal';
+translations.hu.addChargingSession = '+ Töltési munkamenet hozzáadása';
+translations.hu.weeklyChargingTotal = 'Heti töltési összeg';
 let language = localStorage.getItem('current-language') || 'en';
 const t = key => { const value = translations[language][key] || translations.en[key] || key; if (key === 'livingLog') return value.replace('2024', '2026'); if (key === 'heroTitle' && language === 'ro') return 'Jurnalul<br><em>masinii mele</em><br>electrice<span class="lime">.</span>'; return value; };
 const entriesEl = document.querySelector('#entries');
@@ -111,6 +118,23 @@ function populatePeriodFilters() {
 const yearField = document.createElement('label');
 yearField.innerHTML = `<span class="field-label" id="entryYearLabel">${yearLabels[language]}</span><select name="year"><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option></select>`;
 document.querySelector('input[name="week"]').closest('label').after(yearField);
+function addChargingSessionRow() {
+  const list = document.querySelector('#chargingEntryList');
+  if (!list) return;
+  const row = document.createElement('div');
+  row.className = 'charging-entry-row';
+  row.innerHTML = `<label><span class="field-label">${t('chargingProvider')}</span><select name="sessionCharger"><option value="">${t('selectProvider')}</option>${chargingProviders.map(provider => `<option value="${provider}">${provider}</option>`).join('')}</select></label><label><span class="field-label">${t('energyKwh')}</span><input name="sessionEnergy" type="number" min="0" step="0.01" placeholder="13.85"></label><label><span class="field-label">${t('priceRon')}</span><input name="sessionCost" type="number" min="0" step="0.01" placeholder="18.40"></label><button class="remove-charging-button" type="button" aria-label="Remove charging session">×</button>`;
+  row.querySelector('.remove-charging-button').addEventListener('click', () => { row.remove(); updateChargingFormTotal(); });
+  row.querySelectorAll('input').forEach(input => input.addEventListener('input', updateChargingFormTotal));
+  list.append(row);
+}
+function updateChargingFormTotal() {
+  const total = [...document.querySelectorAll('input[name="sessionCost"]')].reduce((sum, input) => sum + Number(input.value || 0), 0);
+  const totalElement = document.querySelector('#chargingFormTotal');
+  if (totalElement) totalElement.textContent = `${total.toFixed(2)} RON`;
+}
+['week', 'title', 'body', 'distance', 'consumption'].forEach(fieldName => document.querySelector(`[name="${fieldName}"]`)?.removeAttribute('required'));
+addChargingSessionRow();
 
 function renderMileageBars() {
   const barsEl = document.querySelector('.mini-bars');
@@ -175,12 +199,12 @@ function renderEntries() {
   const visible = showAll ? entries : entries.slice(0, 3);
   entriesEl.innerHTML = visible.map(entry => `
     <article class="entry">
-      <div class="entry-week">${entry.week}</div>
-      <div><h3>${language === 'ro' ? entry.title : entry.translations?.[language]?.title || entry.title}</h3><p>${language === 'ro' ? entry.body : entry.translations?.[language]?.body || entry.body}</p><div class="entry-meta"><span>${entry.mood} ${entry.mood === '↗' ? t('goodEnergy') : t('keepingItReal')}</span><span>${entry.distance} KM</span><span>${formatEnergy(entry.consumption)} KWH/100</span><span>${formatCurrency(entry.cost)}</span></div></div>
+      <div class="entry-week">${entry.week || '—'}</div>
+      <div><h3>${language === 'ro' ? entry.title || 'Charging update' : entry.translations?.[language]?.title || entry.title || 'Charging update'}</h3><p>${language === 'ro' ? entry.body || 'Charging data only.' : entry.translations?.[language]?.body || entry.body || 'Charging data only.'}</p><div class="entry-meta"><span>${entry.mood || '→'} ${entry.mood === '↗' ? t('goodEnergy') : t('keepingItReal')}</span><span>${entry.distance || 0} KM</span><span>${formatEnergy(entry.consumption || 0)} KWH/100</span><span>${formatCurrency(entry.cost)}</span></div></div>
     </article>`).join('');
 }
 function renderTable() {
-  const entryRows = entries.map(entry => [entry.week.split('·')[0].trim(), `${entry.distance} km`, formatEnergy(entry.consumption), formatCurrency(entry.cost)]);
+  const entryRows = entries.map(entry => [(entry.week || '—').split('·')[0].trim(), `${entry.distance || 0} km`, formatEnergy(entry.consumption || 0), formatCurrency(entry.cost)]);
   const legacyRows = tableRows.map(row => [row[0], row[1], formatEnergy(row[2]), formatCurrency(row[3])]);
   const rows = [...entryRows, ...legacyRows];
   tableEl.innerHTML = rows.slice(0, showAll ? rows.length : 5).map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td class="cost">${row[3]}</td></tr>`).join('');
@@ -190,16 +214,16 @@ function renderTable() {
 function renderChargingTable(records) {
   const chargingTable = document.querySelector('#chargingTable');
   if (!chargingTable) return;
-  const rows = records.filter(record => record.charger || record.energy).map(record => {
-    const energy = Number(record.energy || 0);
-    const price = Number(record.cost || 0);
+  const rows = records.flatMap(record => (record.chargingSessions || (record.charger || record.energy ? [{ charger: record.charger, energy: record.energy, cost: record.cost }] : [])).map(session => {
+    const energy = Number(session.energy || 0);
+    const price = Number(session.cost || 0);
     const unitPrice = energy > 0 ? ` · ${formatCurrency(price / energy)}/kWh` : '';
-    return `<tr><td>WEEK ${String(record.week || '-').padStart(2, '0')}</td><td>${record.charger || '-'}</td><td>${energy > 0 ? `${energy.toFixed(1)} kWh` : '-'}</td><td class="cost">${formatCurrency(price)}${unitPrice}</td></tr>`;
-  });
+    return `<tr><td>WEEK ${String(record.week || '-').padStart(2, '0')}</td><td>${session.charger || '-'}</td><td>${energy > 0 ? `${energy.toFixed(2)} kWh` : '-'}</td><td class="cost">${formatCurrency(price)}${unitPrice}</td></tr>`;
+  }));
   chargingTable.innerHTML = rows.slice(0, showAll ? rows.length : 5).join('') || '<tr><td colspan="4" class="empty-cell">-</td></tr>';
 }
 function getSelectedRecords() {
-  const records = [...entries.map(entry => ({ year: String(entry.year || 2026), month: monthNumber(entry.week), week: weekNumber(entry.week), locations: entry.locations || '', distance: Number(entry.distance), consumption: Number(entry.consumption), cost: Number(entry.cost), charger: entry.charger || '', energy: Number(entry.energy || 0) })), ...tableRows.map(row => ({ year: '2026', month: null, week: weekNumber(row[0]), locations: '', distance: Number(row[1].replace(' km', '')), consumption: Number(row[2]), cost: Number(row[3]), charger: '', energy: 0 }))];
+  const records = [...entries.map(entry => ({ year: String(entry.year || 2026), month: monthNumber(entry.week), week: weekNumber(entry.week), locations: entry.locations || '', distance: Number(entry.distance), consumption: Number(entry.consumption), cost: Number(entry.cost), charger: entry.charger || '', energy: Number(entry.energy || 0), chargingSessions: entry.chargingSessions || [] })), ...tableRows.map(row => ({ year: '2026', month: null, week: weekNumber(row[0]), locations: '', distance: Number(row[1].replace(' km', '')), consumption: Number(row[2]), cost: Number(row[3]), charger: '', energy: 0, chargingSessions: [] }))];
   const selectedYear = document.querySelector('#summaryYear').value;
   const selectedMonth = document.querySelector('#summaryMonth').value;
   const selectedWeek = document.querySelector('#summaryWeek').value;
@@ -260,7 +284,8 @@ document.querySelectorAll('.language-option').forEach(option => option.addEventL
 document.addEventListener('click', event => { if (!event.target.closest('#languagePicker')) { document.querySelector('#languagePicker').classList.remove('open'); document.querySelector('#languageCurrent').setAttribute('aria-expanded', 'false'); } });
 document.querySelector('#newTopicButton').addEventListener('click', () => showToast(t('topicComing')));
 document.querySelector('#filterButton').addEventListener('click', () => { showAll = !showAll; applyTranslations(); });
+document.querySelector('#addChargingSession').addEventListener('click', addChargingSessionRow);
 document.querySelector('#summaryYear').addEventListener('change', event => { event.target.dataset.userSelected = 'true'; renderTotals(); });
 document.querySelector('#summaryMonth').addEventListener('change', renderTotals);
 document.querySelector('#summaryWeek').addEventListener('change', renderTotals);
-document.querySelector('#entryForm').addEventListener('submit', event => { event.preventDefault(); const data = new FormData(event.target); entries.unshift({ year: data.get('year'), week: data.get('week'), locations: data.get('locations'), title: data.get('title'), body: data.get('body'), distance: data.get('distance'), consumption: data.get('consumption'), charger: data.get('charger'), energy: data.get('energy'), cost: Number(data.get('cost')).toFixed(2), mood: data.get('mood'), translations: {} }); localStorage.setItem('current-electric-car-entries', JSON.stringify(entries)); renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars(); dialog.close(); event.target.reset(); showToast(t('updateAdded')); document.querySelector('#history').scrollIntoView({ behavior: 'smooth' }); });
+document.querySelector('#entryForm').addEventListener('submit', event => { event.preventDefault(); const data = new FormData(event.target); const chargingSessions = [...document.querySelectorAll('.charging-entry-row')].map(row => ({ charger: row.querySelector('[name="sessionCharger"]').value, energy: Number(row.querySelector('[name="sessionEnergy"]').value || 0).toFixed(2), cost: Number(row.querySelector('[name="sessionCost"]').value || 0).toFixed(2) })).filter(session => session.charger || Number(session.energy) || Number(session.cost)); const totalCost = chargingSessions.reduce((sum, session) => sum + Number(session.cost), 0); entries.unshift({ year: data.get('year'), week: data.get('week'), locations: data.get('locations'), title: data.get('title'), body: data.get('body'), distance: data.get('distance'), consumption: data.get('consumption'), charger: chargingSessions[0]?.charger || '', energy: chargingSessions[0]?.energy || '', chargingSessions, cost: totalCost.toFixed(2), mood: data.get('mood'), translations: {} }); localStorage.setItem('current-electric-car-entries', JSON.stringify(entries)); renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars(); dialog.close(); event.target.reset(); document.querySelector('#chargingEntryList').innerHTML = ''; addChargingSessionRow(); updateChargingFormTotal(); showToast(t('updateAdded')); document.querySelector('#history').scrollIntoView({ behavior: 'smooth' }); });
