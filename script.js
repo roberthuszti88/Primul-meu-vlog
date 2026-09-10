@@ -12,13 +12,31 @@ const translations = {
   ro: { topics: 'Subiecte', electricCar: 'Masina electrica', livingLog: 'Jurnal · 2024 — prezent', heroTitle: 'Jurnalul meu<br><em>masinii</em> electrice<span class="lime">.</span>', heroDescription: 'O inregistrare a trecerii la electric. Note saptamanale, autonomie reala si experienta de proprietar.', addUpdate: 'Adauga actualizare', viewEntries: 'Vezi toate intrarile <span>↘</span>', totalDistance: 'Distanta totala', thisMonth: '↗ 1.240 km luna aceasta', avgConsumption: 'Consum mediu', lastEightWeeks: 'Ultimele 8 saptamani', totalChargingCost: 'Cost total incarcare', sinceWeekOne: 'Din saptamana 01', home: 'Acasa <b>72%</b>', public: 'Public <b>28%</b>', theLog: 'JURNALUL', weeklyUpdates: 'Actualizari saptamanale', numbers: 'CIFRE', consumption: 'Consum', week: 'Saptamana', distance: 'Distanta', cost: 'Cost', showingLastFive: 'Ultimele 5 saptamani', seeAll: 'Vezi toate <span>↗</span>', chargingHistory: 'ISTORIC INCARCARI', chargingSessions: 'Sesiuni de incarcare', provider: 'Furnizor', energyAmount: 'Energie', price: 'Pret', chargingProvider: 'Furnizor incarcare', selectProvider: 'Alege furnizorul', energyKwh: 'Energie (kWh)', priceRon: 'Pret (RON)', periodTotals: 'TOTAL PE PERIOADA', thisWeek: 'Saptamana aceasta', thisMonthLabel: 'Luna aceasta', thisYear: 'Anul acesta', kilometers: 'Kilometri', energy: 'Energie', totalCost: 'Cost total', fieldNote: 'NOTA DE TEREN', newEntry: 'INTRARE NOUA', logThisWeek: 'Noteaza saptamana', title: 'Titlu', whatHappened: 'Ce s-a intamplat?', distanceKm: 'Distanta (km)', costEuro: 'Cost (€)', mood: 'Stare', greatWeek: '↗ Saptamana buna', steadyWeek: '→ Saptamana constanta', learningWeek: '↓ O saptamana de invatare', publishUpdate: 'Publica actualizarea', allWeeks: 'Toate saptamanile', recentWeeks: 'Saptamani recente', updateAdded: 'Actualizarea a fost adaugata in jurnal.', topicComing: 'Spatiile pentru subiecte urmeaza.', goodEnergy: 'ENERGIE BUNA', keepingItReal: 'REALITATEA DE ZI CU ZI', coldTip: 'Frigul se vede in cifre. Preincalzirea inainte de plecare face cea mai mare diferenta.', rangeTip: 'Cel mai bun test de autonomie este un traseu familiar: aceeasi viteza, aceeasi incarcare, mai putine presupuneri.' },
   hu: { topics: 'Témák', electricCar: 'Elektromos autó', livingLog: 'Napló · 2024 — jelenleg', heroTitle: 'Saját elektromos<br><em>autó</em> naplóm<span class="lime">.</span>', heroDescription: 'A csendes átállás naplója. Heti jegyzetek, valós hatótáv és a tulajdonlás valódi élménye.', addUpdate: 'Heti frissítés hozzáadása', viewEntries: 'Összes bejegyzés <span>↘</span>', totalDistance: 'Teljes távolság', thisMonth: '↗ 1 240 km ebben a hónapban', avgConsumption: 'Átlagfogyasztás', lastEightWeeks: 'Az elmúlt 8 hét', totalChargingCost: 'Teljes töltési költség', sinceWeekOne: 'Az 1. héttől', home: 'Otthoni <b>72%</b>', public: 'Nyilvános <b>28%</b>', theLog: 'NAPLÓ', weeklyUpdates: 'Heti frissítések', numbers: 'SZÁMOK', consumption: 'Fogyasztás', week: 'Hét', distance: 'Távolság', cost: 'Költség', showingLastFive: 'Az utolsó 5 hét látható', seeAll: 'Összes megtekintése <span>↗</span>', chargingHistory: 'TÖLTÉSI ELŐZMÉNYEK', chargingSessions: 'Töltési munkamenetek', provider: 'Szolgáltató', energyAmount: 'Energia', price: 'Ár', chargingProvider: 'Töltési szolgáltató', selectProvider: 'Válassz szolgáltatót', energyKwh: 'Energia (kWh)', priceRon: 'Ár (RON)', periodTotals: 'IDŐSZAK ÖSSZESEN', thisWeek: 'Ezen a héten', thisMonthLabel: 'Ebben a hónapban', thisYear: 'Ebben az évben', kilometers: 'Kilométer', energy: 'Energia', totalCost: 'Teljes költség', fieldNote: 'ÚTI JEGYZET', newEntry: 'ÚJ BEJEGYZÉS', logThisWeek: 'E heti napló', title: 'Cím', whatHappened: 'Mi történt?', distanceKm: 'Távolság (km)', costEuro: 'Költség (€)', mood: 'Hangulat', greatWeek: '↗ Jó hét', steadyWeek: '→ Nyugodt hét', learningWeek: '↓ Tanulságos hét', publishUpdate: 'Frissítés közzététele', allWeeks: 'Minden hét', recentWeeks: 'Legutóbbi hetek', updateAdded: 'A frissítés bekerült a naplóba.', topicComing: 'A témák hamarosan elérhetők.', goodEnergy: 'JÓ ENERGIA', keepingItReal: 'A VALÓSÁG', coldTip: 'A hideg idő látszik a számokon. Az indulás előtti előfűtés segít a legtöbbet.', rangeTip: 'A legjobb hatótávteszt egy ismerős útvonal: azonos sebesség, azonos töltés, kevesebb feltételezés.' }
 };
-const chargingProviders = ['Ampevo', 'EV-GO', 'E-Charge', 'Plugpoint', 'Voltrelli', 'Tesla', 'PPC Blue', 'E-On Drive', 'OMV Emotion', 'iHunt'];
+const chargingProviders = ['Altele', 'Ampevo', 'E-Charge', 'E-On Drive', 'EV-GO', 'iHunt', 'Kaufland', 'Lidl', 'NGT Charge', 'OMV Emotion', 'PPC Blue', 'Petrom Electric', 'Plugpoint', 'Tesla', 'Voltrelli'];
 translations.en.addChargingSession = '+ Add charging session';
 translations.en.weeklyChargingTotal = 'Weekly charging total';
 translations.ro.addChargingSession = '+ Adauga sesiune de incarcare';
 translations.ro.weeklyChargingTotal = 'Total incarcare saptamanal';
 translations.hu.addChargingSession = '+ Töltési munkamenet hozzáadása';
 translations.hu.weeklyChargingTotal = 'Heti töltési összeg';
+translations.en.consumablesExpense = 'Consumables expense';
+translations.en.repairsExpense = 'Repairs expense';
+translations.en.otherExpense = 'Other expenses';
+translations.ro.consumablesExpense = 'Cheltuieli cu consumabile';
+translations.ro.repairsExpense = 'Cheltuieli cu reparatii';
+translations.ro.otherExpense = 'Alte cheltuieli';
+translations.hu.consumablesExpense = 'Fogyóeszközök költsége';
+translations.hu.repairsExpense = 'Javítási költségek';
+translations.hu.otherExpense = 'Egyéb költségek';
+translations.en.costPerKwh = 'COST/KWH';
+translations.ro.costPerKwh = 'COST/KWH';
+translations.hu.costPerKwh = 'KÖLTSÉG/KWH';
+translations.en.averageCost = 'AVERAGE COST';
+translations.ro.averageCost = 'COST MEDIU';
+translations.hu.averageCost = 'ÁTLAGOS KÖLTSÉG';
+translations.en.selectWeek = 'Please select a week first.';
+translations.ro.selectWeek = 'Selecteaza mai intai saptamana.';
+translations.hu.selectWeek = 'Először válassz egy hetet.';
 let language = localStorage.getItem('current-language') || 'en';
 const t = key => { const value = translations[language][key] || translations.en[key] || key; if (key === 'livingLog') return value.replace('2024', '2026'); if (key === 'heroTitle' && language === 'ro') return 'Jurnalul<br><em>masinii mele</em><br>electrice<span class="lime">.</span>'; return value; };
 const entriesEl = document.querySelector('#entries');
@@ -27,6 +45,7 @@ const dialog = document.querySelector('#entryDialog');
 const toast = document.querySelector('#toast');
 let entries = JSON.parse(localStorage.getItem('current-electric-car-entries') || 'null') || [...initialEntries];
 let showAll = false;
+let searchQuery = '';
 const routeMapPanel = document.createElement('div');
 routeMapPanel.className = 'route-map';
 routeMapPanel.innerHTML = '<div class="route-map-heading"><span class="section-kicker" data-i18n="routeMap">ROUTE MAP</span><span class="map-status" id="mapStatus"></span></div><div class="map-canvas" id="routeMap" aria-label="Route map"></div>';
@@ -102,13 +121,20 @@ const monthNames = {
 const monthCodes = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
 const odometerBase = 167780;
 function weekNumber(value) { return (String(value).match(/WEEK\s*0?(\d+)/i) || [])[1] || null; }
+function normalizedWeek(value) { const number = weekNumber(value); return number ? `WEEK ${String(number).padStart(2, '0')}` : ''; }
 function monthNumber(value) { const code = (String(value).match(/\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b/i) || [])[1]; return code ? monthCodes.indexOf(code.toUpperCase()) + 1 : null; }
+const uniqueEntries = new Map();
+entries.forEach(entry => { const key = `${String(entry.year || 2026)}|${normalizedWeek(entry.week) || `entry-${uniqueEntries.size}`}`; if (!uniqueEntries.has(key)) uniqueEntries.set(key, { ...entry, year: String(entry.year || 2026), week: normalizedWeek(entry.week) || entry.week }); });
+entries = [...uniqueEntries.values()];
 function populatePeriodFilters() {
   const monthSelect = document.querySelector('#summaryMonth');
   const weekSelect = document.querySelector('#summaryWeek');
   const selectedMonth = monthSelect.value === 'all' ? String(new Date().getMonth() + 1) : (monthSelect.value || String(new Date().getMonth() + 1));
   const currentYear = String(new Date().getFullYear());
   const yearSelect = document.querySelector('#summaryYear');
+  const selectedYear = yearSelect.value || currentYear;
+  yearSelect.innerHTML = Array.from({ length: 10 }, (_, index) => `<option value="${Number(currentYear) + index}">${Number(currentYear) + index}</option>`).join('');
+  yearSelect.value = selectedYear;
   if (!yearSelect.dataset.userSelected && Array.from(yearSelect.options).some(option => option.value === currentYear)) yearSelect.value = currentYear;
   monthSelect.innerHTML = `<option value="all">-</option>${monthNames[language].map((name, index) => `<option value="${index + 1}">${name}</option>`).join('')}`;
   monthSelect.value = selectedMonth;
@@ -116,8 +142,38 @@ function populatePeriodFilters() {
   weekSelect.disabled = false;
 }
 const yearField = document.createElement('label');
-yearField.innerHTML = `<span class="field-label" id="entryYearLabel">${yearLabels[language]}</span><select name="year"><option value="2025">2025</option><option value="2026" selected>2026</option><option value="2027">2027</option></select>`;
+const currentYear = new Date().getFullYear();
+yearField.innerHTML = `<span class="field-label" id="entryYearLabel">${yearLabels[language]}</span><select name="year">${Array.from({ length: 10 }, (_, index) => `<option value="${currentYear + index}"${index === 0 ? ' selected' : ''}>${currentYear + index}</option>`).join('')}</select>`;
 document.querySelector('input[name="week"]').closest('label').after(yearField);
+const weekInput = document.querySelector('input[name="week"]');
+const weekLabel = weekInput.closest('label');
+const weekSelect = document.createElement('select');
+weekSelect.name = 'week';
+weekSelect.innerHTML = `<option value="">${language === 'ro' ? 'Alege saptamana' : language === 'hu' ? 'Válassz hetet' : 'Select week'}</option>${Array.from({ length: 52 }, (_, index) => { const value = String(index + 1).padStart(2, '0'); return `<option value="WEEK ${value}">WEEK ${value}</option>`; }).join('')}`;
+weekInput.replaceWith(weekSelect);
+let editingEntryIndex = -1;
+function populateEntryForm(entry, preserveSelection = false) {
+  editingEntryIndex = entry ? entries.indexOf(entry) : -1;
+  const form = document.querySelector('#entryForm');
+  if (!form) return;
+  const selectedYear = form.elements.year.value;
+  const selectedWeek = form.elements.week.value;
+  form.elements.year.value = String(entry?.year || (preserveSelection ? selectedYear : currentYear));
+  form.elements.week.value = normalizedWeek(entry?.week) || (preserveSelection ? selectedWeek : '');
+  form.elements.title.value = entry?.title || '';
+  form.elements.body.value = entry?.body || '';
+  form.elements.distance.value = entry?.distance || '';
+  form.elements.consumption.value = entry?.consumption || '';
+  form.elements.consumables.value = entry?.consumables || '';
+  form.elements.repairs.value = entry?.repairs || '';
+  form.elements.other.value = entry?.other || '';
+  document.querySelector('#chargingEntryList').innerHTML = '';
+  const sessions = entry?.chargingSessions?.length ? entry.chargingSessions : [{ charger: entry?.charger || '', energy: entry?.energy || '', cost: entry?.cost || '' }];
+  sessions.forEach(session => { addChargingSessionRow(); const row = document.querySelector('#chargingEntryList .charging-entry-row:last-child'); row.querySelector('[name="sessionCharger"]').value = session.charger || ''; row.querySelector('[name="sessionEnergy"]').value = session.energy || ''; row.querySelector('[name="sessionCost"]').value = session.cost || ''; });
+  updateChargingFormTotal();
+}
+document.querySelector('select[name="year"]').addEventListener('change', () => { const selectedWeek = weekSelect.value; const selectedYear = document.querySelector('select[name="year"]').value; const index = entries.findIndex(entry => String(entry.year || currentYear) === selectedYear && normalizedWeek(entry.week) === selectedWeek); populateEntryForm(index >= 0 ? entries[index] : null, true); });
+weekSelect.addEventListener('change', () => { const selected = weekSelect.value; const selectedYear = document.querySelector('select[name="year"]').value; const index = entries.findIndex(entry => String(entry.year || currentYear) === selectedYear && normalizedWeek(entry.week) === selected); populateEntryForm(index >= 0 ? entries[index] : null, true); });
 function addChargingSessionRow() {
   const list = document.querySelector('#chargingEntryList');
   if (!list) return;
@@ -135,6 +191,29 @@ function updateChargingFormTotal() {
 }
 ['week', 'title', 'body', 'distance', 'consumption'].forEach(fieldName => document.querySelector(`[name="${fieldName}"]`)?.removeAttribute('required'));
 addChargingSessionRow();
+const moodField = document.querySelector('select[name="mood"]')?.closest('.form-row');
+if (moodField) {
+  const expenseFields = document.createElement('div');
+  expenseFields.className = 'form-row';
+  expenseFields.innerHTML = `<label><span class="field-label" data-i18n="consumablesExpense">Consumables expense</span><input name="consumables" type="number" min="0" step="0.01" placeholder="0.00"></label><label><span class="field-label" data-i18n="repairsExpense">Repairs expense</span><input name="repairs" type="number" min="0" step="0.01" placeholder="0.00"></label>`;
+  moodField.before(expenseFields);
+  const otherField = document.createElement('label');
+  otherField.innerHTML = '<span class="field-label" data-i18n="otherExpense">Other expenses</span><input name="other" type="number" min="0" step="0.01" placeholder="0.00">';
+  moodField.before(otherField);
+}
+
+function renderExpenseBars(selector, field) {
+  const barsEl = document.querySelector(selector);
+  if (!barsEl) return;
+  const monthlyValues = Array.from({ length: 12 }, (_, monthIndex) => entries.reduce((sum, entry) => monthNumber(entry.week) === monthIndex + 1 ? sum + Number(entry[field] || 0) : sum, 0));
+  const maxValue = Math.max(...monthlyValues, 1);
+  barsEl.innerHTML = monthlyValues.map(value => `<i class="${value > 0 ? 'filled' : ''}" style="height:${Math.max((value / maxValue) * 100, value > 0 ? 12 : 4)}%" title="${value.toFixed(2)} RON"></i>`).join('');
+}
+function renderExpenseCharts() {
+  renderExpenseBars('.consumables-bars', 'consumables');
+  renderExpenseBars('.repairs-bars', 'repairs');
+  renderExpenseBars('.other-bars', 'other');
+}
 
 function renderMileageBars() {
   const barsEl = document.querySelector('.mini-bars');
@@ -195,19 +274,69 @@ function renderCostBars() {
   }).join('');
   barsEl.innerHTML = bars;
 }
+function getEntryCostPerKwh(entry) {
+    const sessions = entry.chargingSessions?.length ? entry.chargingSessions : (entry.charger || entry.energy ? [{ energy: entry.energy, cost: entry.cost }] : []);
+  let energy = sessions.reduce((sum, session) => sum + Number(session.energy || 0), 0);
+  let cost = sessions.reduce((sum, session) => sum + Number(session.cost || 0), 0);
+  if (!energy) {
+    energy = Number(entry.distance || 0) * Number(entry.consumption || 0) / 100;
+    cost = Number(entry.cost || 0);
+  }
+    return energy > 0 ? cost / energy : 0;
+  }
+function formatCostPerKwh(value) {
+    const amount = Number(value || 0);
+    if (!amount) return '<span style="color:#9a9d94;font:500 10px var(--mono)">-</span>';
+    const color = amount < 2.09 ? '#5d8e1b' : amount <= 2.79 ? '#c69a17' : '#c64d4d';
+    return `<span style="color:${color};font:500 10px var(--mono);white-space:nowrap">${amount.toFixed(2)} RON/kWh</span>`;
+  }
+  function averageCostPerKwh(records) {
+    let totalEnergy = 0;
+    let totalCost = 0;
+    records.forEach(entry => {
+      const sessions = entry.chargingSessions?.length ? entry.chargingSessions : (entry.charger || entry.energy ? [{ energy: entry.energy, cost: entry.cost }] : []);
+      let energy = sessions.reduce((sum, session) => sum + Number(session.energy || 0), 0);
+      let cost = sessions.reduce((sum, session) => sum + Number(session.cost || 0), 0);
+      if (!energy) {
+        energy = Number(entry.distance || 0) * Number(entry.consumption || 0) / 100;
+        cost = Number(entry.cost || 0);
+      }
+      if (energy) { totalEnergy += energy; totalCost += cost; }
+    });
+    return totalEnergy ? totalCost / totalEnergy : 0;
+  }
+  function renderCostKwhSummary() {
+    const summary = document.querySelector('#costKwhSummary');
+    if (!summary) return;
+    const average = averageCostPerKwh(getSelectedRecords());
+    const color = average ? (average < 2.09 ? '#5d8e1b' : average <= 2.79 ? '#c69a17' : '#c64d4d') : '#9a9d94';
+    summary.innerHTML = `<span>${t('averageCost')} <strong style="color:${color}">${average ? `${average.toFixed(2)} RON/kWh` : '-'}</strong></span>`;
+  }
+function ensureCostPerKwhHeader() {
+    const headerRow = document.querySelector('#consumptionTable')?.closest('table')?.querySelector('thead tr');
+    if (!headerRow || headerRow.querySelector('[data-i18n="costPerKwh"]')) return;
+    const header = document.createElement('th');
+    header.dataset.i18n = 'costPerKwh';
+    header.textContent = t('costPerKwh');
+    headerRow.append(header);
+}
 function renderEntries() {
-  const visible = showAll ? entries : entries.slice(0, 3);
+  const searchable = entry => [entry.week, entry.title, entry.body, entry.locations, entry.charger, ...(entry.chargingSessions || []).map(session => session.charger)].join(' ').toLowerCase().includes(searchQuery.toLowerCase());
+  const matchingEntries = searchQuery ? entries.filter(searchable) : entries;
+  const visible = showAll || searchQuery ? matchingEntries : matchingEntries.slice(0, 3);
   entriesEl.innerHTML = visible.map(entry => `
     <article class="entry">
-      <div class="entry-week">${entry.week || '—'}</div>
+      <div class="entry-week">${normalizedWeek(entry.week) || '—'}</div>
       <div><h3>${language === 'ro' ? entry.title || 'Charging update' : entry.translations?.[language]?.title || entry.title || 'Charging update'}</h3><p>${language === 'ro' ? entry.body || 'Charging data only.' : entry.translations?.[language]?.body || entry.body || 'Charging data only.'}</p><div class="entry-meta"><span>${entry.mood || '→'} ${entry.mood === '↗' ? t('goodEnergy') : t('keepingItReal')}</span><span>${entry.distance || 0} KM</span><span>${formatEnergy(entry.consumption || 0)} KWH/100</span><span>${formatCurrency(entry.cost)}</span></div></div>
     </article>`).join('');
 }
 function renderTable() {
-  const entryRows = entries.map(entry => [(entry.week || '—').split('·')[0].trim(), `${entry.distance || 0} km`, formatEnergy(entry.consumption || 0), formatCurrency(entry.cost)]);
-  const legacyRows = tableRows.map(row => [row[0], row[1], formatEnergy(row[2]), formatCurrency(row[3])]);
+  ensureCostPerKwhHeader();
+  const matchingEntries = searchQuery ? entries.filter(entry => [entry.week, entry.title, entry.body, entry.locations, entry.charger, ...(entry.chargingSessions || []).map(session => session.charger)].join(' ').toLowerCase().includes(searchQuery.toLowerCase())) : entries;
+  const entryRows = matchingEntries.map(entry => [normalizedWeek(entry.week) || '—', `${entry.distance || 0} km`, formatEnergy(entry.consumption || 0), formatCurrency(entry.cost), formatCostPerKwh(getEntryCostPerKwh(entry))]);
+  const legacyRows = tableRows.map(row => [row[0], row[1], formatEnergy(row[2]), formatCurrency(row[3]), formatCostPerKwh(0)]);
   const rows = [...entryRows, ...legacyRows];
-  tableEl.innerHTML = rows.slice(0, showAll ? rows.length : 5).map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td class="cost">${row[3]}</td></tr>`).join('');
+  tableEl.innerHTML = rows.slice(0, showAll ? rows.length : 5).map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td class="cost">${row[3]}</td><td>${row[4]}</td></tr>`).join('');
   renderChargingTable(getSelectedRecords());
   renderTotals();
 }
@@ -223,7 +352,7 @@ function renderChargingTable(records) {
   chargingTable.innerHTML = rows.slice(0, showAll ? rows.length : 5).join('') || '<tr><td colspan="4" class="empty-cell">-</td></tr>';
 }
 function getSelectedRecords() {
-  const records = [...entries.map(entry => ({ year: String(entry.year || 2026), month: monthNumber(entry.week), week: weekNumber(entry.week), locations: entry.locations || '', distance: Number(entry.distance), consumption: Number(entry.consumption), cost: Number(entry.cost), charger: entry.charger || '', energy: Number(entry.energy || 0), chargingSessions: entry.chargingSessions || [] })), ...tableRows.map(row => ({ year: '2026', month: null, week: weekNumber(row[0]), locations: '', distance: Number(row[1].replace(' km', '')), consumption: Number(row[2]), cost: Number(row[3]), charger: '', energy: 0, chargingSessions: [] }))];
+  const records = [...entries.map(entry => ({ year: String(entry.year || 2026), month: monthNumber(entry.week), week: weekNumber(entry.week), locations: entry.locations || '', distance: Number(entry.distance), consumption: Number(entry.consumption), cost: Number(entry.cost), charger: entry.charger || '', energy: Number(entry.energy || 0), chargingSessions: entry.chargingSessions || [], consumables: Number(entry.consumables || 0), repairs: Number(entry.repairs || 0), other: Number(entry.other || 0) })), ...tableRows.map(row => ({ year: '2026', month: null, week: weekNumber(row[0]), locations: '', distance: Number(row[1].replace(' km', '')), consumption: Number(row[2]), cost: Number(row[3]), charger: '', energy: 0, chargingSessions: [], consumables: 0, repairs: 0, other: 0 }))];
   const selectedYear = document.querySelector('#summaryYear').value;
   const selectedMonth = document.querySelector('#summaryMonth').value;
   const selectedWeek = document.querySelector('#summaryWeek').value;
@@ -252,6 +381,12 @@ function renderTotals() {
   if (totalEnergyEl) totalEnergyEl.textContent = `${energy.toFixed(2)} kWh`;
   const totalCostEl = document.querySelector('#totalCost');
   if (totalCostEl) totalCostEl.textContent = formatCurrency(cost);
+  [['consumables', '#consumablesExpenseValue'], ['repairs', '#repairsExpenseValue'], ['other', '#otherExpenseValue']].forEach(([field, selector]) => {
+    const value = selected.reduce((sum, record) => sum + Number(record[field] || 0), 0);
+    const element = document.querySelector(selector);
+    if (element) element.innerHTML = `${value.toFixed(2)} <span>RON</span>`;
+  });
+  renderCostKwhSummary();
   renderRouteMap(selected);
 }
 function showToast(message) { toast.textContent = message; toast.classList.add('show'); window.setTimeout(() => toast.classList.remove('show'), 2800); }
@@ -273,12 +408,27 @@ async function applyTranslations() {
   document.querySelectorAll('[data-i18n]').forEach(element => { if (element.tagName === 'OPTION') element.textContent = t(element.dataset.i18n); });
   populatePeriodFilters();
   await translateEntries();
-  renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars();
+  renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars(); renderExpenseCharts();
 }
 
-renderEntries(); renderTable();
+renderEntries(); renderTable(); renderExpenseCharts();
 applyTranslations();
-document.querySelector('#openEntryButton').addEventListener('click', () => dialog.showModal());
+document.querySelector('#openEntryButton').addEventListener('click', () => { populateEntryForm(null); dialog.showModal(); });
+const searchButton = document.querySelector('.icon-button[aria-label="Search"]');
+document.querySelector('.icon-button[aria-label="Notifications"]')?.remove();
+document.querySelector('.online-dot')?.remove();
+document.querySelector('.breadcrumb')?.remove();
+if (searchButton) {
+  const searchInput = document.createElement('input');
+  searchInput.type = 'search';
+  searchInput.placeholder = 'Search journal';
+  searchInput.setAttribute('aria-label', 'Search journal');
+  searchInput.style.cssText = 'display:none;width:150px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 9px;font:500 11px var(--sans);outline:none';
+  searchButton.before(searchInput);
+  searchButton.addEventListener('click', () => { const open = searchInput.style.display === 'none'; searchInput.style.display = open ? 'block' : 'none'; if (open) searchInput.focus(); else { searchInput.value = ''; searchQuery = ''; renderEntries(); renderTable(); } });
+  searchInput.addEventListener('input', event => { searchQuery = event.target.value.trim(); renderEntries(); renderTable(); });
+  searchInput.addEventListener('keydown', event => { if (event.key === 'Escape') { searchButton.click(); } });
+}
 document.querySelector('#languageCurrent').addEventListener('click', () => { const picker = document.querySelector('#languagePicker'); const isOpen = picker.classList.toggle('open'); document.querySelector('#languageCurrent').setAttribute('aria-expanded', String(isOpen)); });
 document.querySelectorAll('.language-option').forEach(option => option.addEventListener('click', event => { language = event.currentTarget.dataset.language; localStorage.setItem('current-language', language); document.querySelector('#languagePicker').classList.remove('open'); document.querySelector('#languageCurrent').setAttribute('aria-expanded', 'false'); applyTranslations(); }));
 document.addEventListener('click', event => { if (!event.target.closest('#languagePicker')) { document.querySelector('#languagePicker').classList.remove('open'); document.querySelector('#languageCurrent').setAttribute('aria-expanded', 'false'); } });
@@ -288,4 +438,4 @@ document.querySelector('#addChargingSession').addEventListener('click', addCharg
 document.querySelector('#summaryYear').addEventListener('change', event => { event.target.dataset.userSelected = 'true'; renderTotals(); });
 document.querySelector('#summaryMonth').addEventListener('change', renderTotals);
 document.querySelector('#summaryWeek').addEventListener('change', renderTotals);
-document.querySelector('#entryForm').addEventListener('submit', event => { event.preventDefault(); const data = new FormData(event.target); const chargingSessions = [...document.querySelectorAll('.charging-entry-row')].map(row => ({ charger: row.querySelector('[name="sessionCharger"]').value, energy: Number(row.querySelector('[name="sessionEnergy"]').value || 0).toFixed(2), cost: Number(row.querySelector('[name="sessionCost"]').value || 0).toFixed(2) })).filter(session => session.charger || Number(session.energy) || Number(session.cost)); const totalCost = chargingSessions.reduce((sum, session) => sum + Number(session.cost), 0); entries.unshift({ year: data.get('year'), week: data.get('week'), locations: data.get('locations'), title: data.get('title'), body: data.get('body'), distance: data.get('distance'), consumption: data.get('consumption'), charger: chargingSessions[0]?.charger || '', energy: chargingSessions[0]?.energy || '', chargingSessions, cost: totalCost.toFixed(2), mood: data.get('mood'), translations: {} }); localStorage.setItem('current-electric-car-entries', JSON.stringify(entries)); renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars(); dialog.close(); event.target.reset(); document.querySelector('#chargingEntryList').innerHTML = ''; addChargingSessionRow(); updateChargingFormTotal(); showToast(t('updateAdded')); document.querySelector('#history').scrollIntoView({ behavior: 'smooth' }); });
+document.querySelector('#entryForm').addEventListener('submit', event => { event.preventDefault(); const data = new FormData(event.target); const selectedWeek = normalizedWeek(data.get('week')); const selectedYear = String(data.get('year') || currentYear); if (!selectedWeek) { showToast(t('selectWeek')); return; } const chargingSessions = [...document.querySelectorAll('.charging-entry-row')].map(row => ({ charger: row.querySelector('[name="sessionCharger"]').value, energy: Number(row.querySelector('[name="sessionEnergy"]').value || 0).toFixed(2), cost: Number(row.querySelector('[name="sessionCost"]').value || 0).toFixed(2) })).filter(session => session.charger || Number(session.energy) || Number(session.cost)); const totalCost = chargingSessions.reduce((sum, session) => sum + Number(session.cost), 0); const updatedEntry = { year: selectedYear, week: selectedWeek, locations: data.get('locations'), title: data.get('title'), body: data.get('body'), distance: data.get('distance'), consumption: data.get('consumption'), charger: chargingSessions[0]?.charger || '', energy: chargingSessions[0]?.energy || '', chargingSessions, cost: totalCost.toFixed(2), consumables: Number(data.get('consumables') || 0).toFixed(2), repairs: Number(data.get('repairs') || 0).toFixed(2), other: Number(data.get('other') || 0).toFixed(2), mood: data.get('mood'), translations: {} }; const duplicateIndex = entries.findIndex((entry, index) => String(entry.year || currentYear) === selectedYear && normalizedWeek(entry.week) === selectedWeek && index !== editingEntryIndex); if (duplicateIndex >= 0) entries.splice(duplicateIndex, 1); const targetIndex = entries.findIndex((entry, index) => String(entry.year || currentYear) === selectedYear && normalizedWeek(entry.week) === selectedWeek && index === editingEntryIndex); if (targetIndex >= 0) entries[targetIndex] = updatedEntry; else entries.unshift(updatedEntry); localStorage.setItem('current-electric-car-entries', JSON.stringify(entries)); renderEntries(); renderTable(); renderMileageBars(); renderAvgConsumptionBars(); renderCostBars(); renderExpenseCharts(); dialog.close(); event.target.reset(); editingEntryIndex = -1; document.querySelector('#chargingEntryList').innerHTML = ''; addChargingSessionRow(); updateChargingFormTotal(); showToast(t('updateAdded')); document.querySelector('#history').scrollIntoView({ behavior: 'smooth' }); });
